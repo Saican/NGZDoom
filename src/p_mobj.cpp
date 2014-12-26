@@ -3059,6 +3059,18 @@ void AActor::SetAngle(angle_t ang, bool interpolate)
 	}
 }
 
+void AActor::SetRoll(angle_t r, bool interpolate) // [NGZDoom]
+{
+	if (r != roll)
+	{
+		roll = r;
+		if (player != NULL && interpolate)
+		{
+			player->cheats |= CF_INTERPVIEW;
+		}
+	}
+}
+
 //
 // P_MobjThinker
 //
